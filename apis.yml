@@ -1,0 +1,170 @@
+name: Spring Cloud APIs
+description: A collection of APIs and services provided by Spring Cloud for building cloud-native applications
+image: https://spring.io/img/spring-cloud.svg
+url: https://spring.io/projects/spring-cloud
+created: '2024-01-15'
+modified: '2024-01-15'
+specificationVersion: '0.16'
+tags:
+- microservices
+- cloud
+- distributed systems
+- spring framework
+- java
+apis:
+- name: Spring Cloud Config
+  description: Externalized configuration management backed by Git, providing server and client-side support for configuration in distributed systems
+  image: https://spring.io/img/projects/spring-cloud.svg
+  humanURL: https://spring.io/projects/spring-cloud-config
+  baseURL: http://localhost:8888
+  tags:
+  - configuration
+  - git
+  - distributed config
+  properties:
+  - type: Documentation
+    url: https://docs.spring.io/spring-cloud-config/docs/current/reference/html/
+  - type: GitHub
+    url: https://github.com/spring-cloud/spring-cloud-config
+  - type: OpenAPI
+    url: https://example.com/spring-cloud-config/openapi.json
+  contact:
+  - FN: Spring Cloud Team
+    email: spring-cloud@pivotal.io
+    X-twitter: springcloud
+- name: Spring Cloud Netflix Eureka
+  description: Service discovery using Netflix Eureka for registering and discovering microservices
+  image: https://spring.io/img/projects/spring-cloud.svg
+  humanURL: https://spring.io/projects/spring-cloud-netflix
+  baseURL: http://localhost:8761
+  tags:
+  - service discovery
+  - eureka
+  - registry
+  properties:
+  - type: Documentation
+    url: https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/
+  - type: GitHub
+    url: https://github.com/spring-cloud/spring-cloud-netflix
+  - type: API Endpoint
+    url: http://localhost:8761/eureka/apps
+  contact:
+  - FN: Spring Cloud Team
+    email: spring-cloud@pivotal.io
+- name: Spring Cloud Gateway
+  description: Intelligent routing and filtering for microservices built on Spring WebFlux
+  image: https://spring.io/img/projects/spring-cloud.svg
+  humanURL: https://spring.io/projects/spring-cloud-gateway
+  baseURL: http://localhost:8080
+  tags:
+  - api gateway
+  - routing
+  - filtering
+  - load balancing
+  properties:
+  - type: Documentation
+    url: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/
+  - type: GitHub
+    url: https://github.com/spring-cloud/spring-cloud-gateway
+  - type: Actuator Endpoints
+    url: http://localhost:8080/actuator/gateway
+  contact:
+  - FN: Spring Cloud Team
+    email: spring-cloud@pivotal.io
+- name: Spring Cloud Stream
+  description: Framework for building event-driven microservices connected with shared messaging systems
+  image: https://spring.io/img/projects/spring-cloud.svg
+  humanURL: https://spring.io/projects/spring-cloud-stream
+  baseURL: https://spring.io/projects/spring-cloud-stream
+  tags:
+  - messaging
+  - event-driven
+  - kafka
+  - rabbitmq
+  properties:
+  - type: Documentation
+    url: https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/
+  - type: GitHub
+    url: https://github.com/spring-cloud/spring-cloud-stream
+  - type: Getting Started
+    url: https://spring.io/guides/gs/spring-cloud-stream/
+  contact:
+  - FN: Spring Cloud Team
+    email: spring-cloud@pivotal.io
+- name: Spring Cloud Sleuth
+  description: Distributed tracing solution for Spring Cloud applications with support for Zipkin and other tracing systems
+  image: https://spring.io/img/projects/spring-cloud.svg
+  humanURL: https://spring.io/projects/spring-cloud-sleuth
+  baseURL: https://spring.io/projects/spring-cloud-sleuth
+  tags:
+  - tracing
+  - observability
+  - distributed tracing
+  - zipkin
+  properties:
+  - type: Documentation
+    url: https://docs.spring.io/spring-cloud-sleuth/docs/current/reference/html/
+  - type: GitHub
+    url: https://github.com/spring-cloud/spring-cloud-sleuth
+  contact:
+  - FN: Spring Cloud Team
+    email: spring-cloud@pivotal.io
+- name: Spring Cloud Circuit Breaker
+  description: Abstraction across different circuit breaker implementations like Resilience4J and Spring Retry
+  image: https://spring.io/img/projects/spring-cloud.svg
+  humanURL: https://spring.io/projects/spring-cloud-circuitbreaker
+  baseURL: https://spring.io/projects/spring-cloud-circuitbreaker
+  tags:
+  - circuit breaker
+  - resilience
+  - fault tolerance
+  properties:
+  - type: Documentation
+    url: https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/
+  - type: GitHub
+    url: https://github.com/spring-cloud/spring-cloud-circuitbreaker
+  contact:
+  - FN: Spring Cloud Team
+    email: spring-cloud@pivotal.io
+- name: Spring Cloud OpenFeign
+  description: Declarative REST client with support for Spring MVC annotations and HttpMessageConverters
+  image: https://spring.io/img/projects/spring-cloud.svg
+  humanURL: https://spring.io/projects/spring-cloud-openfeign
+  baseURL: https://spring.io/projects/spring-cloud-openfeign
+  tags:
+  - rest client
+  - http
+  - feign
+  properties:
+  - type: Documentation
+    url: https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/
+  - type: GitHub
+    url: https://github.com/spring-cloud/spring-cloud-openfeign
+  contact:
+  - FN: Spring Cloud Team
+    email: spring-cloud@pivotal.io
+- name: Spring Cloud Kubernetes
+  description: Integration with Kubernetes providing service discovery, configuration, and load balancing
+  image: https://spring.io/img/projects/spring-cloud.svg
+  humanURL: https://spring.io/projects/spring-cloud-kubernetes
+  baseURL: https://spring.io/projects/spring-cloud-kubernetes
+  tags:
+  - kubernetes
+  - container orchestration
+  - service discovery
+  properties:
+  - type: Documentation
+    url: https://docs.spring.io/spring-cloud-kubernetes/docs/current/reference/html/
+  - type: GitHub
+    url: https://github.com/spring-cloud/spring-cloud-kubernetes
+  contact:
+  - FN: Spring Cloud Team
+    email: spring-cloud@pivotal.io
+maintainers:
+- FN: VMware Tanzu
+  email: support@vmware.com
+  X-twitter: springcloud
+  X-github: spring-cloud
+include:
+- name: Spring Boot APIs
+  url: https://example.com/apis/spring-boot-apis.json
