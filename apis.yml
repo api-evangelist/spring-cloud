@@ -1,4 +1,4 @@
-name: Spring Cloud APIs
+name: Spring Cloud
 description: A collection of APIs and services provided by Spring Cloud for building cloud-native applications
 image: https://spring.io/img/spring-cloud.svg
 url: https://spring.io/projects/spring-cloud
