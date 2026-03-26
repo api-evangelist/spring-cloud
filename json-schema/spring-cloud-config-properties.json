@@ -1,0 +1,316 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/spring-cloud/json-schema/spring-cloud-config-properties.json",
+  "title": "Spring Cloud Configuration Properties",
+  "description": "JSON Schema for Spring Cloud application configuration covering Config Server, Gateway, Service Discovery (Eureka), Circuit Breaker, Load Balancer, and Stream settings.",
+  "type": "object",
+  "properties": {
+    "spring": {
+      "type": "object",
+      "properties": {
+        "cloud": {
+          "type": "object",
+          "properties": {
+            "config": {
+              "type": "object",
+              "description": "Spring Cloud Config Server and Client settings",
+              "properties": {
+                "server": {
+                  "type": "object",
+                  "properties": {
+                    "git": {
+                      "type": "object",
+                      "properties": {
+                        "uri": {
+                          "type": "string",
+                          "description": "URI of the remote Git repository for configuration"
+                        },
+                        "default-label": {
+                          "type": "string",
+                          "default": "main",
+                          "description": "Default branch label"
+                        },
+                        "search-paths": {
+                          "type": "array",
+                          "items": { "type": "string" },
+                          "description": "Subdirectories to search"
+                        },
+                        "clone-on-start": {
+                          "type": "boolean",
+                          "default": false
+                        },
+                        "username": { "type": "string" },
+                        "password": { "type": "string" }
+                      }
+                    },
+                    "native": {
+                      "type": "object",
+                      "properties": {
+                        "search-locations": {
+                          "type": "array",
+                          "items": { "type": "string" },
+                          "description": "Local filesystem paths for native config"
+                        }
+                      }
+                    },
+                    "encrypt": {
+                      "type": "object",
+                      "properties": {
+                        "enabled": { "type": "boolean", "default": true }
+                      }
+                    }
+                  }
+                },
+                "uri": {
+                  "type": "string",
+                  "description": "Config Server URI (client-side)",
+                  "examples": ["http://localhost:8888"]
+                },
+                "fail-fast": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Fail fast if Config Server is not available"
+                },
+                "retry": {
+                  "type": "object",
+                  "properties": {
+                    "initial-interval": { "type": "integer", "default": 1000 },
+                    "max-attempts": { "type": "integer", "default": 6 },
+                    "max-interval": { "type": "integer", "default": 2000 },
+                    "multiplier": { "type": "number", "default": 1.1 }
+                  }
+                }
+              }
+            },
+            "gateway": {
+              "type": "object",
+              "description": "Spring Cloud Gateway configuration",
+              "properties": {
+                "routes": {
+                  "type": "array",
+                  "description": "Route definitions",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Unique route identifier"
+                      },
+                      "uri": {
+                        "type": "string",
+                        "description": "Destination URI (supports lb:// for load balancing)"
+                      },
+                      "predicates": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "description": "Route predicates (e.g., Path=/api/**)"
+                      },
+                      "filters": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "description": "Gateway filters (e.g., StripPrefix=1)"
+                      },
+                      "order": {
+                        "type": "integer",
+                        "description": "Route priority order"
+                      },
+                      "metadata": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "required": ["id", "uri", "predicates"]
+                  }
+                },
+                "default-filters": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Filters applied to all routes"
+                },
+                "globalcors": {
+                  "type": "object",
+                  "properties": {
+                    "cors-configurations": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "object",
+                        "properties": {
+                          "allowedOrigins": {
+                            "type": "array",
+                            "items": { "type": "string" }
+                          },
+                          "allowedMethods": {
+                            "type": "array",
+                            "items": { "type": "string" }
+                          },
+                          "allowedHeaders": {
+                            "type": "array",
+                            "items": { "type": "string" }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "discovery": {
+                  "type": "object",
+                  "properties": {
+                    "locator": {
+                      "type": "object",
+                      "properties": {
+                        "enabled": {
+                          "type": "boolean",
+                          "default": false,
+                          "description": "Auto-create routes from service discovery"
+                        },
+                        "lower-case-service-id": {
+                          "type": "boolean",
+                          "default": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "loadbalancer": {
+              "type": "object",
+              "description": "Spring Cloud LoadBalancer configuration",
+              "properties": {
+                "retry": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": { "type": "boolean", "default": true }
+                  }
+                },
+                "cache": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": { "type": "boolean", "default": true },
+                    "ttl": { "type": "string", "default": "35s" },
+                    "capacity": { "type": "integer", "default": 256 }
+                  }
+                },
+                "health-check": {
+                  "type": "object",
+                  "properties": {
+                    "initial-delay": { "type": "string", "default": "0s" },
+                    "interval": { "type": "string", "default": "25s" }
+                  }
+                }
+              }
+            },
+            "circuitbreaker": {
+              "type": "object",
+              "description": "Spring Cloud Circuit Breaker configuration",
+              "properties": {
+                "resilience4j": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": { "type": "boolean", "default": true }
+                  }
+                }
+              }
+            },
+            "stream": {
+              "type": "object",
+              "description": "Spring Cloud Stream configuration",
+              "properties": {
+                "bindings": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "destination": { "type": "string" },
+                      "group": { "type": "string" },
+                      "content-type": { "type": "string", "default": "application/json" },
+                      "binder": { "type": "string" },
+                      "consumer": {
+                        "type": "object",
+                        "properties": {
+                          "concurrency": { "type": "integer", "default": 1 },
+                          "max-attempts": { "type": "integer", "default": 3 }
+                        }
+                      },
+                      "producer": {
+                        "type": "object",
+                        "properties": {
+                          "partition-count": { "type": "integer", "default": 1 }
+                        }
+                      }
+                    }
+                  }
+                },
+                "binders": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "type": { "type": "string" },
+                      "environment": { "type": "object" }
+                    }
+                  }
+                },
+                "function": {
+                  "type": "object",
+                  "properties": {
+                    "definition": {
+                      "type": "string",
+                      "description": "Function binding definitions (semicolon-separated)"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "eureka": {
+      "type": "object",
+      "description": "Netflix Eureka service discovery configuration",
+      "properties": {
+        "client": {
+          "type": "object",
+          "properties": {
+            "service-url": {
+              "type": "object",
+              "properties": {
+                "defaultZone": {
+                  "type": "string",
+                  "default": "http://localhost:8761/eureka/",
+                  "description": "Eureka server URL"
+                }
+              }
+            },
+            "register-with-eureka": { "type": "boolean", "default": true },
+            "fetch-registry": { "type": "boolean", "default": true },
+            "registry-fetch-interval-seconds": { "type": "integer", "default": 30 }
+          }
+        },
+        "instance": {
+          "type": "object",
+          "properties": {
+            "hostname": { "type": "string" },
+            "prefer-ip-address": { "type": "boolean", "default": false },
+            "lease-renewal-interval-in-seconds": { "type": "integer", "default": 30 },
+            "lease-expiration-duration-in-seconds": { "type": "integer", "default": 90 },
+            "instance-id": { "type": "string" },
+            "metadata-map": {
+              "type": "object",
+              "additionalProperties": { "type": "string" }
+            }
+          }
+        },
+        "server": {
+          "type": "object",
+          "properties": {
+            "enable-self-preservation": { "type": "boolean", "default": true },
+            "eviction-interval-timer-in-ms": { "type": "integer", "default": 60000 }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

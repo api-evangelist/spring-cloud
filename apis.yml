@@ -28,6 +28,8 @@ apis:
     url: https://github.com/spring-cloud/spring-cloud-config
   - type: OpenAPI
     url: https://example.com/spring-cloud-config/openapi.json
+  - type: JSONSchema
+    url: json-schema/spring-cloud-config-properties.json
   contact:
   - FN: Spring Cloud Team
     email: spring-cloud@pivotal.io
@@ -68,6 +70,8 @@ apis:
     url: https://github.com/spring-cloud/spring-cloud-gateway
   - type: Actuator Endpoints
     url: http://localhost:8080/actuator/gateway
+  - type: OpenAPI
+    url: openapi/spring-cloud-gateway-actuator-openapi.yml
   contact:
   - FN: Spring Cloud Team
     email: spring-cloud@pivotal.io
