@@ -8,11 +8,11 @@ created: '2024-01-15'
 modified: '2026-03-16'
 specificationVersion: '0.16'
 tags:
-  - microservices
-  - cloud
-  - distributed systems
-  - spring framework
-  - java
+  - Cloud
+  - Distributed Systems
+  - Java
+  - Microservices
+  - Spring Framework
 apis:
   - name: Spring Cloud Config
     description: >-
@@ -22,13 +22,12 @@ apis:
     humanURL: https://spring.io/projects/spring-cloud-config
     baseURL: http://localhost:8888
     tags:
-      - configuration
-      - git
-      - distributed config
+      - Configuration
+      - Distributed Config
+      - Git
     properties:
       - type: Documentation
-        url: 
-          https://docs.spring.io/spring-cloud-config/docs/current/reference/html/
+        url: https://docs.spring.io/spring-cloud-config/docs/current/reference/html/
       - type: GitHub
         url: https://github.com/spring-cloud/spring-cloud-config
       - type: OpenAPI
@@ -46,13 +45,12 @@ apis:
     humanURL: https://spring.io/projects/spring-cloud-netflix
     baseURL: http://localhost:8761
     tags:
-      - service discovery
-      - eureka
-      - registry
+      - Eureka
+      - Registry
+      - Service Discovery
     properties:
       - type: Documentation
-        url: 
-          https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/
+        url: https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/
       - type: GitHub
         url: https://github.com/spring-cloud/spring-cloud-netflix
       - type: API Endpoint
@@ -67,14 +65,13 @@ apis:
     humanURL: https://spring.io/projects/spring-cloud-gateway
     baseURL: http://localhost:8080
     tags:
-      - api gateway
-      - routing
-      - filtering
-      - load balancing
+      - Api Gateway
+      - Filtering
+      - Load Balancing
+      - Routing
     properties:
       - type: Documentation
-        url: 
-          https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/
+        url: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/
       - type: GitHub
         url: https://github.com/spring-cloud/spring-cloud-gateway
       - type: Actuator Endpoints
@@ -92,14 +89,13 @@ apis:
     humanURL: https://spring.io/projects/spring-cloud-stream
     baseURL: https://spring.io/projects/spring-cloud-stream
     tags:
-      - messaging
-      - event-driven
-      - kafka
-      - rabbitmq
+      - Event-Driven
+      - Kafka
+      - Messaging
+      - Rabbitmq
     properties:
       - type: Documentation
-        url: 
-          https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/
+        url: https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/
       - type: GitHub
         url: https://github.com/spring-cloud/spring-cloud-stream
       - type: Getting Started
@@ -115,14 +111,13 @@ apis:
     humanURL: https://spring.io/projects/spring-cloud-sleuth
     baseURL: https://spring.io/projects/spring-cloud-sleuth
     tags:
-      - tracing
-      - observability
-      - distributed tracing
-      - zipkin
+      - Distributed Tracing
+      - Observability
+      - Tracing
+      - Zipkin
     properties:
       - type: Documentation
-        url: 
-          https://docs.spring.io/spring-cloud-sleuth/docs/current/reference/html/
+        url: https://docs.spring.io/spring-cloud-sleuth/docs/current/reference/html/
       - type: GitHub
         url: https://github.com/spring-cloud/spring-cloud-sleuth
     contact:
@@ -136,13 +131,12 @@ apis:
     humanURL: https://spring.io/projects/spring-cloud-circuitbreaker
     baseURL: https://spring.io/projects/spring-cloud-circuitbreaker
     tags:
-      - circuit breaker
-      - resilience
-      - fault tolerance
+      - Circuit Breaker
+      - Fault Tolerance
+      - Resilience
     properties:
       - type: Documentation
-        url: 
-          https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/
+        url: https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/
       - type: GitHub
         url: https://github.com/spring-cloud/spring-cloud-circuitbreaker
     contact:
@@ -155,13 +149,12 @@ apis:
     humanURL: https://spring.io/projects/spring-cloud-openfeign
     baseURL: https://spring.io/projects/spring-cloud-openfeign
     tags:
-      - rest client
-      - http
-      - feign
+      - Feign
+      - Http
+      - Rest Client
     properties:
       - type: Documentation
-        url: 
-          https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/
+        url: https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/
       - type: GitHub
         url: https://github.com/spring-cloud/spring-cloud-openfeign
     contact:
@@ -175,13 +168,12 @@ apis:
     humanURL: https://spring.io/projects/spring-cloud-kubernetes
     baseURL: https://spring.io/projects/spring-cloud-kubernetes
     tags:
-      - kubernetes
-      - container orchestration
-      - service discovery
+      - Container Orchestration
+      - Kubernetes
+      - Service Discovery
     properties:
       - type: Documentation
-        url: 
-          https://docs.spring.io/spring-cloud-kubernetes/docs/current/reference/html/
+        url: https://docs.spring.io/spring-cloud-kubernetes/docs/current/reference/html/
       - type: GitHub
         url: https://github.com/spring-cloud/spring-cloud-kubernetes
     contact:

@@ -213,3 +213,7 @@ components:
           additionalProperties:
             type: string
           description: Filter arguments
+tags:
+  - name: Filters
+  - name: Predicates
+  - name: Routes
