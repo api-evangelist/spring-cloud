@@ -19,7 +19,7 @@ paths:
   /routes:
     get:
       operationId: getRoutes
-      summary: List all gateway routes
+      summary: Spring Cloud List all gateway routes
       description: Returns all route definitions including predicates, filters, URI, order, and metadata
       tags:
         - Routes
@@ -34,7 +34,7 @@ paths:
                   $ref: '#/components/schemas/RouteDefinition'
     post:
       operationId: createRoute
-      summary: Create a new route definition
+      summary: Spring Cloud Create a new route definition
       tags:
         - Routes
       requestBody:
@@ -51,7 +51,7 @@ paths:
   /routes/{id}:
     get:
       operationId: getRoute
-      summary: Get a specific route definition
+      summary: Spring Cloud Get a specific route definition
       tags:
         - Routes
       parameters:
@@ -71,7 +71,7 @@ paths:
           description: Route not found
     put:
       operationId: updateRoute
-      summary: Update a route definition
+      summary: Spring Cloud Update a route definition
       tags:
         - Routes
       parameters:
@@ -91,7 +91,7 @@ paths:
           description: Route updated
     delete:
       operationId: deleteRoute
-      summary: Delete a route definition
+      summary: Spring Cloud Delete a route definition
       tags:
         - Routes
       parameters:
@@ -108,7 +108,7 @@ paths:
   /refresh:
     post:
       operationId: refreshRoutes
-      summary: Refresh the routes cache
+      summary: Spring Cloud Refresh the routes cache
       description: Forces a refresh of the route definitions
       tags:
         - Routes
@@ -118,7 +118,7 @@ paths:
   /globalfilters:
     get:
       operationId: getGlobalFilters
-      summary: List all global filters
+      summary: Spring Cloud List all global filters
       description: Returns all global filters and their order
       tags:
         - Filters
@@ -135,7 +135,7 @@ paths:
   /routefilters:
     get:
       operationId: getRouteFilters
-      summary: List all available route filter factories
+      summary: Spring Cloud List all available route filter factories
       tags:
         - Filters
       responses:
@@ -150,7 +150,7 @@ paths:
   /routepredicates:
     get:
       operationId: getRoutePredicates
-      summary: List all available route predicate factories
+      summary: Spring Cloud List all available route predicate factories
       tags:
         - Predicates
       responses:
