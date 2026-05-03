@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/spring-cloud/json-schema/spring-cloud-service-instance-schema.json",
+  "title": "Spring Cloud Service Instance",
+  "description": "JSON Schema for a Spring Cloud ServiceInstance registered with a service registry (Eureka, Consul, or Kubernetes).",
+  "type": "object",
+  "required": ["serviceId", "host", "port", "uri"],
+  "properties": {
+    "serviceId": {
+      "type": "string",
+      "description": "Service identifier matching spring.application.name"
+    },
+    "host": {
+      "type": "string",
+      "description": "Hostname or IP address of this service instance"
+    },
+    "port": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 65535,
+      "description": "Port number the service is listening on"
+    },
+    "secure": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this instance uses HTTPS"
+    },
+    "uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Complete URI to this service instance"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Key-value metadata (zone, version, weight, etc.)"
+    },
+    "instanceId": {
+      "type": "string",
+      "description": "Unique instance identifier"
+    },
+    "scheme": {
+      "type": "string",
+      "enum": ["http", "https"],
+      "description": "URI scheme"
+    }
+  }
+}

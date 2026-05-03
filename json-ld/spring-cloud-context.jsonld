@@ -1,0 +1,49 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "spring": "https://spring.io/vocab#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "ServiceInstance": "spring:ServiceInstance",
+    "ServiceRegistry": "spring:ServiceRegistry",
+    "ConfigServer": "spring:ConfigServer",
+    "CircuitBreaker": "spring:CircuitBreaker",
+    "APIGateway": "spring:APIGateway",
+    "LoadBalancer": "spring:LoadBalancer",
+
+    "serviceId": {
+      "@id": "spring:serviceId",
+      "@type": "xsd:string"
+    },
+    "host": {
+      "@id": "schema:serverAddress"
+    },
+    "port": {
+      "@id": "schema:portNumber",
+      "@type": "xsd:integer"
+    },
+    "secure": {
+      "@id": "spring:secure",
+      "@type": "xsd:boolean"
+    },
+    "uri": {
+      "@id": "schema:url"
+    },
+    "instanceId": {
+      "@id": "schema:identifier"
+    },
+    "metadata": {
+      "@id": "spring:metadata",
+      "@container": "@index"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "SoftwareApplication": "schema:SoftwareApplication",
+    "url": "schema:url"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Circuit Breaker with Resilience4J Example",
+  "description": "Example Spring Cloud Circuit Breaker configuration using Resilience4J with fallback",
+  "component": "Spring Cloud Circuit Breaker",
+  "configuration": {
+    "resilience4j.circuitbreaker.instances.userService": {
+      "sliding-window-size": 10,
+      "failure-rate-threshold": 50,
+      "wait-duration-in-open-state": "30s",
+      "permitted-number-of-calls-in-half-open-state": 5,
+      "slow-call-duration-threshold": "3s",
+      "slow-call-rate-threshold": 80
+    },
+    "resilience4j.circuitbreaker.instances.paymentService": {
+      "sliding-window-size": 20,
+      "failure-rate-threshold": 25,
+      "wait-duration-in-open-state": "60s"
+    }
+  },
+  "javaImplementation": {
+    "annotation": "@CircuitBreaker(name = \"userService\", fallbackMethod = \"getUserFallback\")\npublic User getUser(String userId) {\n    return userServiceClient.findById(userId);\n}\n\npublic User getUserFallback(String userId, Exception ex) {\n    return User.defaultUser(userId);\n}",
+    "programmatic": "circuitBreakerFactory.create(\"userService\")\n    .run(() -> userServiceClient.findById(userId),\n         throwable -> User.defaultUser(userId));"
+  },
+  "states": {
+    "CLOSED": "Normal operation, requests pass through",
+    "OPEN": "Circuit tripped, requests fail fast with fallback",
+    "HALF_OPEN": "Testing recovery, limited requests allowed through"
+  }
+}

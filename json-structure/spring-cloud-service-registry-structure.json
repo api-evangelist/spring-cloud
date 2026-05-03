@@ -1,0 +1,41 @@
+{
+  "name": "Spring Cloud",
+  "description": "Structure documentation for Spring Cloud distributed systems components",
+  "version": "2023.0.0",
+  "structures": [
+    {
+      "name": "ServiceInstance",
+      "description": "A registered service instance in the Spring Cloud service registry",
+      "fields": [
+        { "name": "serviceId", "type": "string", "required": true, "description": "Service identifier (spring.application.name)" },
+        { "name": "host", "type": "string", "required": true, "description": "Hostname or IP address of the instance" },
+        { "name": "port", "type": "integer", "required": true, "description": "Port the service is listening on" },
+        { "name": "secure", "type": "boolean", "required": false, "description": "Whether this instance uses HTTPS" },
+        { "name": "uri", "type": "string", "required": true, "description": "Full URI to this instance" },
+        { "name": "metadata", "type": "object", "required": false, "description": "Map of instance metadata (zone, version, etc.)" },
+        { "name": "instanceId", "type": "string", "required": false, "description": "Unique instance identifier" }
+      ]
+    },
+    {
+      "name": "ConfigClientProperties",
+      "description": "Spring Cloud Config client configuration",
+      "fields": [
+        { "name": "uri", "type": "string", "required": false, "description": "Config server URL" },
+        { "name": "profile", "type": "string", "required": false, "description": "Active profile for config lookup" },
+        { "name": "label", "type": "string", "required": false, "description": "Git branch/tag for config lookup" },
+        { "name": "name", "type": "string", "required": false, "description": "Application name for config lookup" }
+      ]
+    },
+    {
+      "name": "RouteDefinition",
+      "description": "Spring Cloud Gateway route definition",
+      "fields": [
+        { "name": "id", "type": "string", "required": true, "description": "Route identifier" },
+        { "name": "uri", "type": "string", "required": true, "description": "Destination URI" },
+        { "name": "predicates", "type": "array", "required": true, "description": "Route matching predicates" },
+        { "name": "filters", "type": "array", "required": false, "description": "Applied filters" },
+        { "name": "order", "type": "integer", "required": false, "description": "Route priority" }
+      ]
+    }
+  ]
+}

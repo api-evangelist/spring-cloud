@@ -1,0 +1,70 @@
+extends:
+  - spectral:oas
+
+rules:
+
+  spring-cloud-operation-id-camel-case:
+    description: Operation IDs must be camelCase
+    message: "Operation ID '{{value}}' must use camelCase"
+    given: "$.paths[*][get,post,put,delete,patch].operationId"
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]+$"
+
+  spring-cloud-summary-title-case:
+    description: All operation summaries must use Title Case
+    message: "Summary '{{value}}' should use Title Case"
+    given: "$.paths[*][get,post,put,delete,patch].summary"
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+
+  spring-cloud-tags-required:
+    description: All operations must declare at least one tag
+    message: "Operation is missing tags"
+    given: "$.paths[*][get,post,put,delete,patch]"
+    severity: error
+    then:
+      field: tags
+      function: truthy
+
+  spring-cloud-tags-title-case:
+    description: Tags must be Title Case
+    message: "Tag '{{value}}' must use Title Case"
+    given: "$.paths[*][get,post,put,delete,patch].tags[*]"
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z ]+$"
+
+  spring-cloud-components-schemas-defined:
+    description: API should define schemas for core resources
+    message: "API should define reusable schemas in components.schemas"
+    given: "$.components"
+    severity: warn
+    then:
+      field: schemas
+      function: truthy
+
+  spring-cloud-servers-defined:
+    description: At least one server must be defined
+    message: "OpenAPI spec must define at least one server"
+    given: "$"
+    severity: error
+    then:
+      field: servers
+      function: truthy
+
+  spring-cloud-info-version-defined:
+    description: API info must include a version
+    message: "API must specify a version in info.version"
+    given: "$.info"
+    severity: error
+    then:
+      field: version
+      function: truthy

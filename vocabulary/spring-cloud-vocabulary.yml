@@ -1,0 +1,141 @@
+name: Spring Cloud Vocabulary
+description: Domain vocabulary and taxonomy for Spring Cloud distributed systems patterns, components, and microservices concepts.
+version: "2023.0.0"
+created: "2026-05-02"
+modified: "2026-05-02"
+url: https://spring.io/projects/spring-cloud
+
+terms:
+
+  - term: Service Discovery
+    definition: >-
+      The mechanism by which microservices locate each other at runtime without hardcoded
+      addresses. Spring Cloud supports Netflix Eureka, Consul, Zookeeper, and Kubernetes
+      as service registries.
+    category: Pattern
+    tags:
+      - Eureka
+      - Consul
+      - Kubernetes
+
+  - term: Eureka
+    definition: >-
+      A REST-based service registry from Netflix integrated with Spring Cloud Netflix.
+      Services register on startup and discover peers via the Eureka Server's REST API.
+      Supports self-preservation mode and zone-aware routing.
+    category: Service Discovery
+    tags:
+      - Netflix
+      - Registry
+
+  - term: Circuit Breaker
+    definition: >-
+      A resilience pattern that stops forwarding requests to an unhealthy downstream service.
+      Spring Cloud implements this via Resilience4J (primary) or Spring Retry. States are
+      CLOSED (normal), OPEN (blocking), and HALF_OPEN (testing recovery).
+    category: Resilience Pattern
+    tags:
+      - Resilience4J
+      - Fault Tolerance
+
+  - term: Load Balancer
+    definition: >-
+      Spring Cloud LoadBalancer provides client-side load balancing, distributing requests
+      across registered service instances. Replaces Ribbon (deprecated). Supports round-robin
+      and random strategies.
+    category: Traffic Management
+    tags:
+      - Round Robin
+      - Client-Side
+
+  - term: OpenFeign
+    definition: >-
+      A declarative HTTP client integrated with Spring Cloud. Annotate interfaces with
+      @FeignClient and Spring Cloud wires up load-balanced HTTP calls with error handling
+      and Spring MVC annotation support.
+    category: HTTP Client
+    tags:
+      - Declarative
+      - REST Client
+
+  - term: Spring Cloud Bus
+    definition: >-
+      A message bus (Kafka or RabbitMQ) that links nodes across distributed systems for
+      broadcasting state changes (config refresh, log level changes) without restarting
+      individual services.
+    category: Messaging
+    tags:
+      - Kafka
+      - RabbitMQ
+      - Broadcast
+
+  - term: Distributed Tracing
+    definition: >-
+      Tracking requests across multiple microservices using trace IDs and span IDs. Spring
+      Cloud integrates with Micrometer Tracing and backends like Zipkin and Jaeger for
+      latency analysis and dependency mapping.
+    category: Observability
+    tags:
+      - Zipkin
+      - Jaeger
+      - Tracing
+
+  - term: Spring Cloud Kubernetes
+    definition: >-
+      Integration that allows Spring Boot applications to consume Kubernetes-native features
+      including ConfigMap-backed properties, Secret injection, pod-based service discovery,
+      and health probes.
+    category: Platform Integration
+    tags:
+      - Kubernetes
+      - ConfigMap
+      - Service Discovery
+
+  - term: Microservice
+    definition: >-
+      An architectural style where applications are built as a collection of small, independently
+      deployable services that communicate over networks. Spring Cloud provides the tooling to
+      implement common microservice patterns.
+    category: Architecture
+    tags:
+      - Architecture
+      - Deployment
+      - Independence
+
+  - term: Config Server
+    definition: >-
+      A centralized configuration service (from Spring Cloud Config) that serves externalized
+      properties to all microservices from a Git-backed or native repository.
+    category: Component
+    tags:
+      - Configuration
+      - Git
+
+  - term: API Gateway
+    definition: >-
+      A server that acts as the single entry point for client requests to a microservice
+      architecture. Spring Cloud Gateway provides routing, filtering, rate limiting, and
+      circuit breaking at the edge.
+    category: Component
+    tags:
+      - Routing
+      - Edge Service
+
+  - term: Span
+    definition: >-
+      The basic unit of work in distributed tracing. Represents a timed operation with start
+      and end timestamps, annotations, and key-value tags. Multiple spans form a trace tree.
+    category: Observability
+    tags:
+      - Tracing
+      - Zipkin
+
+  - term: Feign Client
+    definition: >-
+      A named @FeignClient bean that creates a proxy for an HTTP API, enabling declarative
+      REST calls with Spring MVC annotations and built-in support for load balancing and
+      circuit breaking.
+    category: HTTP Client
+    tags:
+      - Declarative
+      - Proxy
