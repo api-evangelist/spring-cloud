@@ -103,7 +103,7 @@ apis:
         url: https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/
       - type: GitHub
         url: https://github.com/spring-cloud/spring-cloud-stream
-      - type: Getting Started
+      - type: GettingStarted
         url: https://spring.io/guides/gs/spring-cloud-stream/
   - aid: spring-cloud:spring-cloud-circuit-breaker
     name: Spring Cloud Circuit Breaker
@@ -162,11 +162,11 @@ common:
     url: https://spring.io/projects/spring-cloud
   - type: Documentation
     url: https://docs.spring.io/spring-cloud/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/spring-cloud
   - type: Blog
     url: https://spring.io/blog/category/cloud
-  - type: Stack Overflow
+  - type: StackOverflow
     url: https://stackoverflow.com/questions/tagged/spring-cloud
   - type: Maven Repository
     url: https://mvnrepository.com/artifact/org.springframework.cloud
