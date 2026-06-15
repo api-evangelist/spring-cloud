@@ -1,0 +1,162 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spring Cloud Gateway Actuator API",
+    "version": "4.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Spring Cloud List all gateway routes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/gateway/routes"
+          },
+          "docs": "Returns all route definitions including predicates, filters, URI, order, and metadata"
+        },
+        {
+          "info": {
+            "name": "Spring Cloud Create a new route definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/actuator/gateway/routes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Spring Cloud Create a new route definition"
+        },
+        {
+          "info": {
+            "name": "Spring Cloud Get a specific route definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/gateway/routes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Spring Cloud Get a specific route definition"
+        },
+        {
+          "info": {
+            "name": "Spring Cloud Update a route definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8080/actuator/gateway/routes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Spring Cloud Update a route definition"
+        },
+        {
+          "info": {
+            "name": "Spring Cloud Delete a route definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/actuator/gateway/routes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Spring Cloud Delete a route definition"
+        },
+        {
+          "info": {
+            "name": "Spring Cloud Refresh the routes cache",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/actuator/gateway/refresh"
+          },
+          "docs": "Forces a refresh of the route definitions"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Filters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Spring Cloud List all global filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/gateway/globalfilters"
+          },
+          "docs": "Returns all global filters and their order"
+        },
+        {
+          "info": {
+            "name": "Spring Cloud List all available route filter factories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/gateway/routefilters"
+          },
+          "docs": "Spring Cloud List all available route filter factories"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Predicates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Spring Cloud List all available route predicate factories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/gateway/routepredicates"
+          },
+          "docs": "Spring Cloud List all available route predicate factories"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
