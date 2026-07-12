@@ -152,6 +152,10 @@ apis:
       - type: GitHub
         url: https://github.com/spring-cloud/spring-cloud-kubernetes
 common:
+  - type: VulnerabilityDisclosure
+    url: security/spring-cloud-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/spring-cloud-domain-security.yml
   - type: Website
     url: https://spring.io/projects/spring-cloud
   - type: Documentation
