@@ -152,6 +152,8 @@ apis:
       - type: GitHub
         url: https://github.com/spring-cloud/spring-cloud-kubernetes
 common:
+  - type: AgenticAccess
+    url: agentic-access/spring-cloud-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/spring-cloud-vulnerability-disclosure.yml
   - type: DomainSecurity
