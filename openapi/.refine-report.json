@@ -1,0 +1,18 @@
+{
+  "provider": "spring-cloud",
+  "sources": [
+    "spring-cloud-filters-api-openapi.yml",
+    "spring-cloud-predicates-api-openapi.yml",
+    "spring-cloud-routes-api-openapi.yml"
+  ],
+  "outputs": [
+    "spring-cloud-filters-api-openapi.yml",
+    "spring-cloud-predicates-api-openapi.yml",
+    "spring-cloud-routes-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

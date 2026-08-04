@@ -1,0 +1,219 @@
+openapi: 3.0.3
+info:
+  title: Spring Cloud Gateway Actuator API
+  description: >-
+    Actuator endpoints exposed by Spring Cloud Gateway for managing routes,
+    global filters, and route filters at runtime. These endpoints are available
+    under the /actuator/gateway path.
+  version: 4.1.0
+  contact:
+    name: Spring Cloud Team
+    url: https://spring.io/projects/spring-cloud-gateway
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: http://localhost:8080/actuator/gateway
+    description: Default Gateway Actuator base path
+paths:
+  /routes:
+    get:
+      operationId: getRoutes
+      summary: Spring Cloud List all gateway routes
+      description: Returns all route definitions including predicates, filters, URI, order, and metadata
+      tags:
+        - Routes
+      responses:
+        '200':
+          description: List of route definitions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RouteDefinition'
+    post:
+      operationId: createRoute
+      summary: Spring Cloud Create a new route definition
+      tags:
+        - Routes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RouteDefinition'
+      responses:
+        '201':
+          description: Route created
+        '400':
+          description: Invalid route definition
+  /routes/{id}:
+    get:
+      operationId: getRoute
+      summary: Spring Cloud Get a specific route definition
+      tags:
+        - Routes
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Route definition
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteDefinition'
+        '404':
+          description: Route not found
+    put:
+      operationId: updateRoute
+      summary: Spring Cloud Update a route definition
+      tags:
+        - Routes
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RouteDefinition'
+      responses:
+        '200':
+          description: Route updated
+    delete:
+      operationId: deleteRoute
+      summary: Spring Cloud Delete a route definition
+      tags:
+        - Routes
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Route deleted
+        '404':
+          description: Route not found
+  /refresh:
+    post:
+      operationId: refreshRoutes
+      summary: Spring Cloud Refresh the routes cache
+      description: Forces a refresh of the route definitions
+      tags:
+        - Routes
+      responses:
+        '200':
+          description: Routes refreshed
+  /globalfilters:
+    get:
+      operationId: getGlobalFilters
+      summary: Spring Cloud List all global filters
+      description: Returns all global filters and their order
+      tags:
+        - Filters
+      responses:
+        '200':
+          description: Global filter list with ordering
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: integer
+                description: Map of filter class name to order
+  /routefilters:
+    get:
+      operationId: getRouteFilters
+      summary: Spring Cloud List all available route filter factories
+      tags:
+        - Filters
+      responses:
+        '200':
+          description: Available GatewayFilter factories
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /routepredicates:
+    get:
+      operationId: getRoutePredicates
+      summary: Spring Cloud List all available route predicate factories
+      tags:
+        - Predicates
+      responses:
+        '200':
+          description: Available RoutePredicateFactory implementations
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+components:
+  schemas:
+    RouteDefinition:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique route identifier
+        uri:
+          type: string
+          description: Destination URI
+        predicates:
+          type: array
+          items:
+            $ref: '#/components/schemas/PredicateDefinition'
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/FilterDefinition'
+        order:
+          type: integer
+          description: Route priority
+        metadata:
+          type: object
+          additionalProperties: true
+      required:
+        - id
+        - uri
+        - predicates
+    PredicateDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Predicate factory name
+        args:
+          type: object
+          additionalProperties:
+            type: string
+          description: Predicate arguments
+    FilterDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Filter factory name
+        args:
+          type: object
+          additionalProperties:
+            type: string
+          description: Filter arguments
+tags:
+  - name: Filters
+  - name: Predicates
+  - name: Routes
